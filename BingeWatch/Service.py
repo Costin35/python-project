@@ -522,7 +522,7 @@ def notify_new_uploads():
         for upload in new_uploads:
             show_name = session.query(Show).filter_by(id=upload.show_id).first().name
             print(f"\nNew upload for show {show_name} about episode {upload.name} at url {upload.url}")
-            logger.info(f"New upload for show {show_name} about episode{upload.name} at url {upload.url}")
+            logger.info(f"New upload for show {show_name} about episode {upload.name} at url {upload.url}")
 
             upload.is_new = False
 

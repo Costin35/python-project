@@ -2,7 +2,7 @@ from database import init_db
 from logger import setup_logger
 from Service import (add_show, list_shows, find_show, delete_show, change_score,
                      toggle_snooze, list_trailers, remaining_episodes, get_unwatched_shows,
-                     find_youtube_trailers, start_continuous_uploads_search,
+                     find_youtube_trailers, start_continuous_uploads_search, list_uploads,
                      stop_continuous_uploads_search, find_youtube_uploads)
 
 logger = setup_logger(log_filename="binge_watch.log")
@@ -21,12 +21,13 @@ def main():
         print("5. Change Score")
         print("6. Toggle Snooze")
         print("7. List all trailers")
-        print("8. Remaining episodes")
-        print("9. Find trailers")
-        print("10. Find uploads")
-        print("11. Start continuous uploads search")
-        print("12. Stop continuous uploads search")
-        print("13. Exit")
+        print("8. List all uploads")
+        print("9. Remaining episodes")
+        print("10. Find trailers")
+        print("11. Find uploads")
+        print("12. Start continuous uploads search")
+        print("13. Stop continuous uploads search")
+        print("14. Exit")
         choice = input("Choose an option: ")
 
         if choice == "1":
@@ -44,16 +45,18 @@ def main():
         elif choice == "7":
             list_trailers()
         elif choice == "8":
-            remaining_episodes()
+            list_uploads()
         elif choice == "9":
-            find_youtube_trailers()
+            remaining_episodes()
         elif choice == "10":
-            find_youtube_uploads()
+            find_youtube_trailers()
         elif choice == "11":
-            start_continuous_uploads_search()
+            find_youtube_uploads()
         elif choice == "12":
-            stop_continuous_uploads_search()
+            start_continuous_uploads_search()
         elif choice == "13":
+            stop_continuous_uploads_search()
+        elif choice == "14":
             print("Goodbye!")
             logger.info("Application closed by user.")
             break
